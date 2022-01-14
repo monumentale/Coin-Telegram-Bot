@@ -110,7 +110,7 @@ bot.hears('✅Submit Details', ctx => ctx.reply(`🔹 Join our Telegram Group
 
 After joined, press "✅ Done!"`, Markup
   .keyboard([
-    ['✅ Done'], // Row1 with 2 buttons
+    ['✅ Done!'], // Row1 with 2 buttons
     ['❌❌Cancel'], // Row2 with 2 buttons
   ])))
 
