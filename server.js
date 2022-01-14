@@ -53,6 +53,8 @@ bot.start((ctx) => {
 
 bot.action(/.+/, (ctx) =>{
   bot.telegram.getChatMember(chat_id="@LuckyUnicornGlobal", user_id=ctx.chat.id)
+
+
   ctx.reply(`Hello,  I am your friendly Bunny Girl Universe Airdrop bot
 
   ✅Please do the required tasks to be eligible to get airdrop tokens.
@@ -271,17 +273,17 @@ bot.action(/.+/, (ctx) => {
   return ctx.answerCbQuery(`Oh!!!!, ${ctx.match[0]}! Great choice`)
 })
 
-bot.launch()
-process.once('SIGINT', () => bot.stop('SIGINT'))
-process.once('SIGTERM', () => bot.stop('SIGTERM'))
+// bot.launch()
+// process.once('SIGINT', () => bot.stop('SIGINT'))
+// process.once('SIGTERM', () => bot.stop('SIGTERM'))
 
-// app.use(bot.webhookCallback("/bot"));
-// bot.telegram.setWebhook(`${CURRENT_URL}/bot`);
+app.use(bot.webhookCallback("/bot"));
+bot.telegram.setWebhook(`${CURRENT_URL}/bot`);
 
-// app.get("/", (req, res) => {
-//   res.send("Our new tab!!");
-// });
+app.get("/", (req, res) => {
+  res.send("Our new tab!!");
+});
 
-// app.listen(PORT, "0.0.0.0", () => {
-//   console.log(`Listen in the port ${PORT}`);
-// });
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Listen in the port ${PORT}`);
+});
