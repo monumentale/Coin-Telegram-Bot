@@ -55,7 +55,7 @@ bot.action(/.+/, (ctx) =>{
   bot.telegram.getChatMember(chat_id="@LuckyUnicornGlobal", user_id=ctx.chat.id)
 
 
-  ctx.reply(`Hello,  I am your friendly Bunny Girl Universe Airdrop bot
+  ctx.reply(`Hello  ${ctx.chat.first_name},  I am your friendly Bunny Girl Universe Airdrop bot
 
   ✅Please do the required tasks to be eligible to get airdrop tokens.
   
