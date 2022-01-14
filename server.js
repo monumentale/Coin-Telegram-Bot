@@ -1,110 +1,262 @@
-const Telegraf = require("telegraf");
-//const axios = require("axios");
+const { Telegraf, Markup } = require('telegraf')
 const express = require("express");
-//get app inside express
+
+const bot = new Telegraf("5077804125:AAGtkjghWqof2V_JdXVbY2kJ3SzSaoXOmTI")
+
 const app = express();
 
 const CURRENT_URL = "https://boiling-everglades-72395.herokuapp.com";
-const bot = new Telegraf("AAEyHK-m9yqVGEuwP3yMxVG5WAakh8eYbr8");
 let PORT = process.env.PORT || 3000
 
+bot.use(Telegraf.log())
 
-const buttons = Telegraf.Extra.markup((m) =>
-  m.inlineKeyboard([
-      [ m.callbackButton('Test', 'test') ],
-      [ m.callbackButton('Test 2', 'test2') ]
-  ])
+bot.start((ctx) => {
+  return ctx.reply(`📋 Lucky Unicorn is a blockchain-based trading and fighting game that is partly owned and operated by players. GameFi allows players to collect, raise, battle and trade unicorns.
+  Lucky Unicorn GameFi has launched, and the reward is the L99 coin. L99 is an ecosystem coin with AMM, DEX, Wallet, DAO, Launchpad and Blockchain LN Chain. Join the game at: https://app.luckyunicorn.io/shop
+  
+  🌐 Website: https://luckyunicorn.io/
+  📒 Partnership: Yahoo Finance, AsiaOne, StreetInsider, NEWSMAX, Digital Journal, <a href="google.com"> Pancakeswap</a>, Coinmarketcap, Avalanche
+  
+  We are glad that you joined our airdrop
+  💰 Winners: 1800 random winners (250 L99 per winner)
+  💰 Top 20 Referrals: 2500 L99 per referral
+  
+  📢 To get your reward you must complete this tasks.
+  🔹 Follow our Twitter page
+  🔹 Like and Retweet out Twitter’s post and tag 3 members under the post.
+  🔹 Like and follow L99 at Coinmarketcap
+  🔹 Follow our Airdrop Partner's Twitter and retweet this Airdrop tweet
+  🔹 Join our Airdrop Partner's Channel
+  🔹 Subscribe to our Advertiser YouTube channel
+  🔹 Join our Telegram Channel
+  🔹 Join our Telegram <a href="https://t.me/+lTxEfUIiD7w5MTgx">Group</a>
+  
+  Note: (You must complete all task then click check button)`, {
+    parse_mode: 'HTML',
+    ...Markup.inlineKeyboard([
+      Markup.button.callback('Check', 'Check')
+    ])
+  })
+})
+
+bot.action("check", (ctx) => ctx.reply(`Hello,  I am your friendly Bunny Girl Universe Airdrop bot
+
+✅Please do the required tasks to be eligible to get airdrop tokens.
+
+📘By Participating you are agreeing to the Bunny Girl Universe (Airdrop) Program Terms and Conditions. Please see pinned post for more information.
+
+Click "Join Airdrop" to proceed`, Markup
+  .keyboard([
+    ['Join Airdrop'] // Row1 with 2 buttons
+  ])))
+
+
+bot.action(/.+/, (ctx) => ctx.reply(`Hello,  I am your friendly Bunny Girl Universe Airdrop bot
+
+  ✅Please do the required tasks to be eligible to get airdrop tokens.
+  
+  📘By Participating you are agreeing to the Bunny Girl Universe (Airdrop) Program Terms and Conditions. Please see pinned post for more information.
+  
+  Click "Join Airdrop" to proceed`, Markup
+  .keyboard([
+    ['Join Airdrop'] // Row1 with 2 buttons
+  ])))
+
+bot.on('check', (ctx) => ctx.reply(`Hello,  I am your friendly Bunny Girl Universe Airdrop bot
+
+✅Please do the required tasks to be eligible to get airdrop tokens.
+
+📘By Participating you are agreeing to the Bunny Girl Universe (Airdrop) Program Terms and Conditions. Please see pinned post for more information.
+
+Click "Join Airdrop" to proceed`, Markup
+  .keyboard([
+    ['Join Airdrop'] // Row1 with 2 buttons
+  ])))
+
+
+bot.hears('Join Airdrop', ctx => ctx.reply(`⭐️ 1 Token: Total 500 Billion $BNGT Pool
+
+🔹 Total to earn per Participant: 100,000,000 $BNGT Tokens 
+🔹 Per Referrals: 1,000,000 $BNGT Tokens 
+🔹 Winners: 5000 random winners get 500 Billion $BNGT tokens 
+🔹 Top 50 Referrals: 12,7 Million $BNGT Tokens
+1st place                    : 500 Million BNGT
+2nd place                  : 200 Million BNGT
+3rd place                   : 100 Million BNGT
+4st to 50th place  : 10 Million BNGT
+
+🌐 Website: https://bunnygirlnft.com/
+📘 IDO: Erax, daostarter
+📋 Contract: 0x8ec6df71d4d98c5aff5214e4f680920fedf32a43
+📅 Airdrop end date: 15th Jan 2022
+🏦 Distribution date: 15 days after listing PancakeSwap
+
+📢 Airdrop Rules
+
+✏️ Mandatory Tasks:
+🔹 Join our Telegram Group
+🔹 Join our Telegram Channel
+🔹 Join our Airdrop Partner's Channel 
+🔹 Follow our Twitter page and Retweet the Pinned post
+🔹 Follow our Airdrop Partner's Twitter and retweet this Airdrop tweet`, Markup
+  .keyboard([
+    ['Submit Details'], // Row1 with 2 buttons
+    ['Cancel'], // Row2 with 2 buttons
+  ])))
+
+
+bot.hears('Submit Details', ctx => ctx.reply(`🔹 Join our Telegram Group
+🔹 Join our Telegram Channel
+
+After joined, press "✅ Done"`, Markup
+  .keyboard([
+    ['✅ Done'], // Row1 with 2 buttons
+    ['Cancel'], // Row2 with 2 buttons
+  ])))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/*********************************************************copy from here************************************************************************************************************ */ }
+bot.command('onetime', (ctx) =>
+  ctx.reply('One time keyboard', Markup
+    .keyboard(['/simple', '/inline', '/pyramid'])
+    .oneTime()
+    .resize()
+  )
 )
 
-//our command /start
-bot.command("start", (msg) => msg.reply(`
-🎁1,000,000 #TWT GIVEAWAY🎁 
- 
-To Claim, you need to send between $25 to $5,000 #BNB to the contribution address, and we will immediately send you back 5x the amount you sent  
- 
-Example - if you send $100 , we will send you back $500 in #TWT 
- 
-📜Contribution address (click to copy) 
- 
-BEP20
-0xbF205ab92c221f8587441c714caFfdEDB1B89E1B
+bot.command('custom', (ctx) => {
+  ctx.reply('Custom buttons keyboard', Markup
+    .keyboard([
+      ['🔍 Search', '😎 Popular'], // Row1 with 2 buttons
+      ['☸ Setting', '📞 Feedback'], // Row2 with 2 buttons
+      ['📢 Ads', '⭐️ Rate us', '👥 Share'] // Row3 with 3 buttons
+    ])
+  )
+})
 
-BEP2
-bnb1phpsfugav5q4r5dfmcllwxslvqxknh04uxwrpa 
+bot.hears('🔍 Search', ctx => ctx.reply('Yay!'))
+bot.hears('📢 Ads', ctx => ctx.reply('Free hugs. Call now!'))
 
-🏆 Extra 100,000 $TWT Will Be Received By 20 People Out Of Those That Sent Above $1000
- 
-Trust Wallet Token CoinMartketCap 
- 
-💰Get instant now 
-⭕️Please submit the transaction TX HASH :`));
+bot.command('special', (ctx) => {
+  return ctx.reply(
+    'Special buttons keyboard',
+    Markup.keyboard([
+      Markup.button.contactRequest('Send contact'),
+      Markup.button.locationRequest('Send location')
+    ]).resize()
+  )
+})
 
+bot.command('pyramid', (ctx) => {
+  return ctx.reply(
+    'Keyboard wrap',
+    Markup.keyboard(['one', 'two', 'three', 'four', 'five', 'six'], {
+      wrap: (btn, index, currentRow) => currentRow.length >= (index + 1) / 2
+    })
+  )
+})
 
+bot.command('simple', (ctx) => {
+  return ctx.replyWithHTML(
+    '<b>Coke</b> or <i>Pepsi?</i>',
+    Markup.keyboard(['Coke', 'Pepsi'])
+  )
+})
 
+bot.command('inline', (ctx) => {
+  return ctx.reply('<b>Coke</b> or <i>Pepsi?</i>', {
+    parse_mode: 'HTML',
+    ...Markup.inlineKeyboard([
+      Markup.button.callback('Coke', 'Coke'),
+      Markup.button.callback('Pepsi', 'Pepsi')
+    ])
+  })
+})
 
+bot.command('random', (ctx) => {
+  return ctx.reply(
+    'random example',
+    Markup.inlineKeyboard([
+      Markup.button.callback('Coke', 'Coke'),
+      Markup.button.callback('Dr Pepper', 'Dr Pepper', Math.random() > 0.5),
+      Markup.button.callback('Pepsi', 'Pepsi')
+    ])
+  )
+})
 
+bot.command('caption', (ctx) => {
+  return ctx.replyWithPhoto({ url: 'https://picsum.photos/200/300/?random' },
+    {
+      caption: 'Caption',
+      parse_mode: 'Markdown',
+      ...Markup.inlineKeyboard([
+        Markup.button.callback('Plain', 'plain'),
+        Markup.button.callback('Italic', 'italic')
+      ])
+    }
+  )
+})
 
+bot.hears(/\/wrap (\d+)/, (ctx) => {
+  return ctx.reply(
+    'Keyboard wrap',
+    Markup.keyboard(['one', 'two', 'three', 'four', 'five', 'six'], {
+      columns: parseInt(ctx.match[1])
+    })
+  )
+})
 
-bot.command("bitcoin", async (ctx) => {
-  //we will use async await from js language to get our price information!!!
-  try {
-    //axios will use the url to get usd price for bitcoin
-    const { data } = await axios.get(
-      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
-    );
-    //you will see the json if you console in the terminal!
-    console.log(data);
-    //answer our user!
-    ctx.reply(`🎁1,000,000 #TWT GIVEAWAY🎁 
- 
-To Claim, you need to send between $25 to $5,000 #BNB to the contribution address, and we will immediately send you back 5x the amount you sent  
- 
-Example - if you send $100 , we will send you back $500 in #TWT 
- 
-📜Contribution address (click to copy) 
- 
-BEP20
-0xbF205ab92c221f8587441c714caFfdEDB1B89E1B
+bot.action('Dr Pepper', (ctx, next) => {
+  return ctx.reply('👍').then(() => next())
+})
 
-BEP2
-bnb1phpsfugav5q4r5dfmcllwxslvqxknh04uxwrpa 
+bot.action('plain', async (ctx) => {
+  await ctx.answerCbQuery()
+  await ctx.editMessageCaption('Caption', Markup.inlineKeyboard([
+    Markup.button.callback('Plain', 'plain'),
+    Markup.button.callback('Italic', 'italic')
+  ]))
+})
 
-🏆 Extra 100,000 $TWT Will Be Received By 20 People Out Of Those That Sent Above $1000
- 
-Trust Wallet Token CoinMartketCap 
- 
-💰Get instant now 
-⭕️Please submit the transaction TX HASH :`);
-  } catch (e) {
-    console.log(e);
-  }
-});
+bot.action('italic', async (ctx) => {
+  await ctx.answerCbQuery()
+  await ctx.editMessageCaption('_Caption_', {
+    parse_mode: 'Markdown',
+    ...Markup.inlineKeyboard([
+      Markup.button.callback('Plain', 'plain'),
+      Markup.button.callback('* Italic *', 'italic')
+    ])
+  })
+})
 
-bot.command("ethereum", async (ctx) => {
-  try {
-   // const { data } = await axios.get(
-   //   "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd"
-   // );
-    //you will see the json if you console in the terminal!
-    console.log(data);
-    ctx.reply(`Price for Ethereum: U$${data.ethereum.usd}`);
-  } catch (e) {
-    console.log(e);
-  }
-});
+bot.action(/.+/, (ctx) => {
+  return ctx.answerCbQuery(`Oh!!!!, ${ctx.match[0]}! Great choice`)
+})
 
-bot.command("tezos", async (ctx) => {
-  try {
-  //  const { data } = await axios.get(
-   //   "https://api.coingecko.com/api/v3/simple/price?ids=tezos&vs_currencies=usd"
-  //  );
-    //you will see the json if you console in the terminal!
-    console.log(data);
-    ctx.reply(`Price for Tezos: U$${data.tezos.usd}`);
-  } catch (e) {
-    console.log(e);
-  }
-});
+// bot.launch()
+// process.once('SIGINT', () => bot.stop('SIGINT'))
+// process.once('SIGTERM', () => bot.stop('SIGTERM'))
 
 app.use(bot.webhookCallback("/bot"));
 bot.telegram.setWebhook(`${CURRENT_URL}/bot`);
