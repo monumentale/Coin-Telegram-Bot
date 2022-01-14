@@ -39,16 +39,16 @@ bot.start((ctx) => {
   })
 })
 
-bot.action("check", (ctx) => ctx.reply(`Hello,  I am your friendly Bunny Girl Universe Airdrop bot
+// bot.action("check", (ctx) => ctx.reply(`Hello,  I am your friendly Bunny Girl Universe Airdrop bot
 
-✅Please do the required tasks to be eligible to get airdrop tokens.
+// ✅Please do the required tasks to be eligible to get airdrop tokens.
 
-📘By Participating you are agreeing to the Bunny Girl Universe (Airdrop) Program Terms and Conditions. Please see pinned post for more information.
+// 📘By Participating you are agreeing to the Bunny Girl Universe (Airdrop) Program Terms and Conditions. Please see pinned post for more information.
 
-Click "Join Airdrop" to proceed`, Markup
-  .keyboard([
-    ['Join Airdrop '] // Row1 with 2 buttons
-  ])))
+// Click "Join Airdrop" to proceed`, Markup
+//   .keyboard([
+//     ['🎉🎉Join Airdrop'] // Row1 with 2 buttons
+//   ])))
 
 
 bot.action(/.+/, (ctx) => ctx.reply(`Hello,  I am your friendly Bunny Girl Universe Airdrop bot
@@ -59,19 +59,19 @@ bot.action(/.+/, (ctx) => ctx.reply(`Hello,  I am your friendly Bunny Girl Unive
   
   Click "Join Airdrop" to proceed`, Markup
   .keyboard([
-    ['Join Airdrop'] // Row1 with 2 buttons
-  ])))
-
-bot.on('check', (ctx) => ctx.reply(`Hello,  I am your friendly Bunny Girl Universe Airdrop bot
-
-✅Please do the required tasks to be eligible to get airdrop tokens.
-
-📘By Participating you are agreeing to the Bunny Girl Universe (Airdrop) Program Terms and Conditions. Please see pinned post for more information.
-
-Click "Join Airdrop" to proceed`, Markup
-  .keyboard([
     ['🎉🎉Join Airdrop'] // Row1 with 2 buttons
   ])))
+
+// bot.on('check', (ctx) => ctx.reply(`Hello,  I am your friendly Bunny Girl Universe Airdrop bot
+
+// ✅Please do the required tasks to be eligible to get airdrop tokens.
+
+// 📘By Participating you are agreeing to the Bunny Girl Universe (Airdrop) Program Terms and Conditions. Please see pinned post for more information.
+
+// Click "Join Airdrop" to proceed`, Markup
+//   .keyboard([
+//     ['🎉🎉Join Airdrop'] // Row1 with 2 buttons
+//   ])))
 
 
 bot.hears('🎉🎉Join Airdrop', ctx => ctx.reply(`⭐️ 1 Token: Total 500 Billion $BNGT Pool
