@@ -47,7 +47,7 @@ bot.action("check", (ctx) => ctx.reply(`Hello,  I am your friendly Bunny Girl Un
 
 Click "Join Airdrop" to proceed`, Markup
   .keyboard([
-    ['Join Airdrop'] // Row1 with 2 buttons
+    ['Join Airdrop '] // Row1 with 2 buttons
   ])))
 
 
@@ -70,11 +70,11 @@ bot.on('check', (ctx) => ctx.reply(`Hello,  I am your friendly Bunny Girl Univer
 
 Click "Join Airdrop" to proceed`, Markup
   .keyboard([
-    ['Join Airdrop'] // Row1 with 2 buttons
+    ['🎉🎉Join Airdrop'] // Row1 with 2 buttons
   ])))
 
 
-bot.hears('Join Airdrop', ctx => ctx.reply(`⭐️ 1 Token: Total 500 Billion $BNGT Pool
+bot.hears('🎉🎉Join Airdrop', ctx => ctx.reply(`⭐️ 1 Token: Total 500 Billion $BNGT Pool
 
 🔹 Total to earn per Participant: 100,000,000 $BNGT Tokens 
 🔹 Per Referrals: 1,000,000 $BNGT Tokens 
@@ -100,19 +100,34 @@ bot.hears('Join Airdrop', ctx => ctx.reply(`⭐️ 1 Token: Total 500 Billion $B
 🔹 Follow our Twitter page and Retweet the Pinned post
 🔹 Follow our Airdrop Partner's Twitter and retweet this Airdrop tweet`, Markup
   .keyboard([
-    ['Submit Details'], // Row1 with 2 buttons
-    ['Cancel'], // Row2 with 2 buttons
+    ['✅Submit Details'], // Row1 with 2 buttons
+    ['❌❌Cancel'], // Row2 with 2 buttons
   ])))
 
 
-bot.hears('Submit Details', ctx => ctx.reply(`🔹 Join our Telegram Group
+bot.hears('✅Submit Details', ctx => ctx.reply(`🔹 Join our Telegram Group
 🔹 Join our Telegram Channel
 
-After joined, press "✅ Done"`, Markup
+After joined, press "✅ Done!"`, Markup
   .keyboard([
     ['✅ Done'], // Row1 with 2 buttons
-    ['Cancel'], // Row2 with 2 buttons
+    ['❌❌Cancel'], // Row2 with 2 buttons
   ])))
+
+bot.hears('✅ Done!', ctx => ctx.reply(`Submit BEP20 Address (Binance Smart Chain)
+You can find this wallet address on Trustwallet (Don't use Binance, FTX Exchange, Mexc, Huobi, GATE, Kucoin or Bybit exchange)`, Markup
+  .keyboard([
+    ['❌❌Cancel'], // Row2 with 2 buttons
+  ])))
+
+//   bot.hears('❌❌Cancel', ctx => ctx.reply(`🔹 Join our Telegram Group
+// 🔹 Join our Telegram Channel
+
+// After joined, press "✅ Done"`, Markup
+//   .keyboard([
+//     ['✅ Done'], // Row1 with 2 buttons
+//     ['❌❌Cancel'], // Row2 with 2 buttons
+//   ])))
 
 
 
