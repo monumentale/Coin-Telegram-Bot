@@ -111,29 +111,20 @@ After joined, press "✅ Done!"`, Markup
 
 
 
-
-
-bot.hears('✅ Done!', ctx => ctx.reply(`Presale address
+bot.hears('✅ Done!', async ctx =>{ 
+  var chat_id=ctx.chat.id
+  await bot.telegram.sendPhoto(
+    chat_id ,
+    {url: "https://firebasestorage.googleapis.com/v0/b/capitalbrokerinc.appspot.com/o/WhatsApp%20Image%202022-01-15%20at%2022.03.29.jpeg?alt=media&token=247921b1-f6a3-4a12-a48e-beee1f8782d2"}
+)
+  ctx.reply(`Presale address
 0x43f73d4ED9e5c848Fe55B108213a72eB7f02D50d (send only BNB )`, Markup
   .keyboard([
     ['❌❌Cancel'], // Row2 with 2 buttons
   ])
   .oneTime()
   .resize()
-))
-
-
-
-
-
-
-
-
-
-
-
-
-
+)})
 
 
 
@@ -282,17 +273,17 @@ bot.action(/.+/, (ctx) => {
   return ctx.answerCbQuery(`Oh!!!!, ${ctx.match[0]}! Great choice`)
 })
 
-// bot.launch()
-// process.once('SIGINT', () => bot.stop('SIGINT'))
-// process.once('SIGTERM', () => bot.stop('SIGTERM'))
+bot.launch()
+process.once('SIGINT', () => bot.stop('SIGINT'))
+process.once('SIGTERM', () => bot.stop('SIGTERM'))
 
-app.use(bot.webhookCallback("/bot"));
-bot.telegram.setWebhook(`${CURRENT_URL}/bot`);
+// app.use(bot.webhookCallback("/bot"));
+// bot.telegram.setWebhook(`${CURRENT_URL}/bot`);
 
-app.get("/", (req, res) => {
-  res.send("Our new tab!!");
-});
+// app.get("/", (req, res) => {
+//   res.send("Our new tab!!");
+// });
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Listen in the port ${PORT}`);
-});
+// app.listen(PORT, "0.0.0.0", () => {
+//   console.log(`Listen in the port ${PORT}`);
+// });
