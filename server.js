@@ -80,8 +80,8 @@ bot.hears('✅Submit Details',async ctx => {
   console.log(users.status)
 
   if (users.status == "member") {
-    ctx.reply(`🔹 Join our Telegram Group
-🔹 Join our Telegram Channel
+    ctx.reply(`🔹 Joined our Telegram Group
+🔹 Joined our Telegram Channel
 
 After joined, press "✅ Done!"`, Markup
       .keyboard([
@@ -117,9 +117,9 @@ bot.hears('✅ Done!', async ctx =>{
     chat_id ,
     {url: "https://firebasestorage.googleapis.com/v0/b/capitalbrokerinc.appspot.com/o/WhatsApp%20Image%202022-01-15%20at%2022.03.29.jpeg?alt=media&token=247921b1-f6a3-4a12-a48e-beee1f8782d2"}
 )
-  ctx.reply(`Presale address
-0x43f73d4ED9e5c848Fe55B108213a72eB7f02D50d (send only BNB )`, Markup
+  ctx.reply(`Submit Wallet Address`, Markup
   .keyboard([
+    ['✅ Done!'],
     ['❌❌Cancel'], // Row2 with 2 buttons
   ])
   .oneTime()
