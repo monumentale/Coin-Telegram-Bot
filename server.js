@@ -8,7 +8,7 @@ const app = express();
 const CURRENT_URL = "https://boiling-everglades-72395.herokuapp.com";
 let PORT = process.env.PORT || 3000
 
-bot.use(Telegraf.log())
+// bot.use(Telegraf.log())
 
 bot.start((ctx) => {
   return ctx.reply(`Universal Rewards Protocol, DAO powered Ecosystem | The mother of all soon to be built Apps & Services for Web 3.0 that will generate revenue of rewards back to its community. AltSwitch is a first-of-its-kind Binance Smart Chain rewards token that gives you
@@ -61,7 +61,10 @@ bot.hears('🎉🎉Join Presale', ctx => ctx.reply(`✏️ Mandatory Tasks:
   .keyboard([
     ['✅Submit Details'], // Row1 with 2 buttons
     ['❌❌Cancel'], // Row2 with 2 buttons
-  ])))
+  ])
+  .oneTime()
+  .resize()
+  ))
 
 
 bot.hears('✅Submit Details', ctx => ctx.reply(`🔹 Join our Telegram Group
