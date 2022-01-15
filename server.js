@@ -46,7 +46,10 @@ bot.action(/.+/, (ctx) => {
   Buy Limit- 0.1-5 (BNB)`, Markup
     .keyboard([
       ['🎉🎉Join Presale'] // Row1 with 2 buttons
-    ]))
+    ])
+    .oneTime()
+    .resize()
+    )
 })
 
 
@@ -74,13 +77,19 @@ After joined, press "✅ Done!"`, Markup
   .keyboard([
     ['✅ Done!'], // Row1 with 2 buttons
     ['❌❌Cancel'], // Row2 with 2 buttons
-  ])))
+  ])
+  .oneTime()
+  .resize()
+  ))
 
 bot.hears('✅ Done!', ctx => ctx.reply(`Presale address
 0x43f73d4ED9e5c848Fe55B108213a72eB7f02D50d (send only BNB )`, Markup
   .keyboard([
     ['❌❌Cancel'], // Row2 with 2 buttons
-  ])))
+  ])
+  .oneTime()
+  .resize()
+  ))
 
 
 
