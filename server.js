@@ -75,7 +75,7 @@ bot.hears('🎉🎉Join Presale', ctx => {
 
 
 
-bot.hears('✅Submit Details',async ctx => {
+bot.hears('✅Submit Details', async ctx => {
   const users = await bot.telegram.getChatMember(chat_id = "@BunnyGirlNFT", user_id = ctx.chat.id)
   console.log(users.status)
 
@@ -111,20 +111,56 @@ After joined, press "✅ Done!"`, Markup
 
 
 
-bot.hears('✅ Done!', async ctx =>{ 
-  var chat_id=ctx.chat.id
+bot.hears('✅ Done!', async ctx => {
+  var chat_id = ctx.chat.id
   await bot.telegram.sendPhoto(
-    chat_id ,
-    {url: "https://firebasestorage.googleapis.com/v0/b/capitalbrokerinc.appspot.com/o/WhatsApp%20Image%202022-01-15%20at%2022.03.29.jpeg?alt=media&token=247921b1-f6a3-4a12-a48e-beee1f8782d2"}
-)
+    chat_id,
+    { url: "https://firebasestorage.googleapis.com/v0/b/capitalbrokerinc.appspot.com/o/WhatsApp%20Image%202022-01-15%20at%2022.03.29.jpeg?alt=media&token=247921b1-f6a3-4a12-a48e-beee1f8782d2" }
+  )
   ctx.reply(`Submit Wallet Address`, Markup
-  .keyboard([
-    ['✅ Done!'],
-    ['❌❌Cancel'], // Row2 with 2 buttons
-  ])
-  .oneTime()
-  .resize()
-)})
+    .keyboard([
+      ['✅ Wallet Submitted'],
+      ['❌❌Cancel'], // Row2 with 2 buttons
+    ])
+    .oneTime()
+    .resize()
+  )
+})
+
+
+bot.hears('✅ Wallet Submitted', async ctx => {
+  var chat_id = ctx.chat.id
+  //   await bot.telegram.sendPhoto(
+  //     chat_id ,
+  //     {url: "https://firebasestorage.googleapis.com/v0/b/capitalbrokerinc.appspot.com/o/WhatsApp%20Image%202022-01-15%20at%2022.03.29.jpeg?alt=media&token=247921b1-f6a3-4a12-a48e-beee1f8782d2"}
+  // )
+  ctx.reply(`Altswitch ALTS
+  Total Supply- 1,000,000,000 ALTS
+  Total For Presale-200,000,000
+  Presale Rate-1 BNB=200,000 ALTS 
+  Listing Rate-1BNB=139,950 ALTS
+  Initial Market Cap-$1,066,310
+  Soft Cap-500BNB
+  Hard Cap-1000BNB
+  Unsold Tokens-Burn 
+  
+  Presale start date-2022-01-17 
+  16:00 (UTC)
+  
+  Presale End date-2022-01-18
+  16:00(UTC)
+  
+  Listing on Pancakeswap
+  
+  Buy Limit- 0.1-5 (BNB)`, Markup
+    .keyboard([
+      // ['✅ Wallet Submitted'],
+      ['❌❌Cancel'], // Row2 with 2 buttons
+    ])
+    .oneTime()
+    .resize()
+  )
+})
 
 
 
