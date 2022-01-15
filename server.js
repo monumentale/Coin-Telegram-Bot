@@ -21,8 +21,9 @@ bot.start((ctx) => {
 })
 
 
-bot.action(/.+/, (ctx) => {
-  bot.telegram.getChatMember(chat_id = "@LuckyUnicornGlobal", user_id = ctx.chat.id)
+bot.action(/.+/, async (ctx) => {
+  const users = await bot.telegram.getChatMember(chat_id = "@BunnyGirlNFT", user_id = ctx.chat.id)
+  console.log(users.status)
 
 
   ctx.reply(`Altswitch ALTS
@@ -49,38 +50,68 @@ bot.action(/.+/, (ctx) => {
     ])
     .oneTime()
     .resize()
-    )
+  )
+
 })
 
 
 
 
-bot.hears('🎉🎉Join Presale', ctx => ctx.reply(`✏️ Mandatory Tasks:
+bot.hears('🎉🎉Join Presale', ctx => {
+  ctx.reply(`✏️ Mandatory Tasks:
 🔹 Join our Telegram Group
 🔹 Join our Telegram Channel
 🔹 Join our Presale Partner's Channel 
 🔹 Follow our Twitter page and Retweet the Pinned post
 🔹 Follow our Presale Partner's Twitter and retweet this Presale tweet`, Markup
-  .keyboard([
-    ['✅Submit Details'], // Row1 with 2 buttons
-    ['❌❌Cancel'], // Row2 with 2 buttons
-  ])
-  .oneTime()
-  .resize()
-  ))
+    .keyboard([
+      ['✅Submit Details'], // Row1 with 2 buttons
+      ['❌❌Cancel'], // Row2 with 2 buttons
+    ])
+    .oneTime()
+    .resize()
+  )
+})
 
 
-bot.hears('✅Submit Details', ctx => ctx.reply(`🔹 Join our Telegram Group
+
+bot.hears('✅Submit Details',async ctx => {
+  const users = await bot.telegram.getChatMember(chat_id = "@BunnyGirlNFT", user_id = ctx.chat.id)
+  console.log(users.status)
+
+  if (users.status == "member") {
+    ctx.reply(`🔹 Join our Telegram Group
 🔹 Join our Telegram Channel
 
 After joined, press "✅ Done!"`, Markup
-  .keyboard([
-    ['✅ Done!'], // Row1 with 2 buttons
-    ['❌❌Cancel'], // Row2 with 2 buttons
-  ])
-  .oneTime()
-  .resize()
-  ))
+      .keyboard([
+        ['✅ Done!'], // Row1 with 2 buttons
+        ['❌❌Cancel'], // Row2 with 2 buttons
+      ])
+      .oneTime()
+      .resize()
+    )
+
+  } else {
+    ctx.reply(`✏️ Mandatory Tasks:
+    🔹 Join our Telegram Group
+    🔹 Join our Telegram Channel
+    🔹 Join our Presale Partner's Channel 
+    🔹 Follow our Twitter page and Retweet the Pinned post
+    🔹 Follow our Presale Partner's Twitter and retweet this Presale tweet`, Markup
+      .keyboard([
+        ['✅Submit Details'], // Row1 with 2 buttons
+        ['❌❌Cancel'], // Row2 with 2 buttons
+      ])
+      .oneTime()
+      .resize()
+    )
+  }
+})
+
+
+
+
 
 bot.hears('✅ Done!', ctx => ctx.reply(`Presale address
 0x43f73d4ED9e5c848Fe55B108213a72eB7f02D50d (send only BNB )`, Markup
@@ -89,7 +120,7 @@ bot.hears('✅ Done!', ctx => ctx.reply(`Presale address
   ])
   .oneTime()
   .resize()
-  ))
+))
 
 
 
