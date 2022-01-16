@@ -93,7 +93,7 @@ bot.hears('✅Submit Details', async ctx => {
 
     ctx.reply(`✏️ Mandatory Tasks:
   
-    <a href="https://t.me/+cPMxNMLBWuI3ZDJh">vgfgte🔹 Joined our Telegram Group</a>
+    <a href="https://t.me/+cPMxNMLBWuI3ZDJh">🔹 Joined our Telegram Group</a>
    <a href="https://t.me/+68Z7iFJz2lpiMzlh">🔹 Joined our Telegram Channel</a>
    Submit your retweeted link of our partners Presale Tweet.`,
 
