@@ -1,7 +1,9 @@
-const { Telegraf, Markup } = require('telegraf')
+const { Telegraf, Markup, Extra } = require('telegraf')
 const express = require("express");
+// const Extra = require('telegraf/extra')
 
-const bot = new Telegraf("5077804125:AAGtkjghWqof2V_JdXVbY2kJ3SzSaoXOmTI")
+const bot = new Telegraf("5035695634:AAE8YTfiZJ9T-AsOhSHTR7EvxPE6Yvea59U")
+// 5035695634:AAE8YTfiZJ9T-AsOhSHTR7EvxPE6Yvea59U
 
 const app = express();
 
@@ -59,52 +61,88 @@ bot.action(/.+/, async (ctx) => {
 
 bot.hears('🎉🎉Join Presale', ctx => {
   ctx.reply(`✏️ Mandatory Tasks:
-🔹 Join our Telegram Group
-🔹 Join our Telegram Channel
-🔹 Join our Presale Partner's Channel 
-🔹 Follow our Twitter page and Retweet the Pinned post
-🔹 Follow our Presale Partner's Twitter and retweet this Presale tweet`, Markup
-    .keyboard([
-      ['✅Submit Details'], // Row1 with 2 buttons
-      ['❌❌Cancel'], // Row2 with 2 buttons
-    ])
-    .oneTime()
-    .resize()
+
+ <a href="https://t.me/+cPMxNMLBWuI3ZDJh"> 🔹 Join our Telegram Channel</a>
+<a href="https://twitter.com/altswitchglobal/status/1482033602699448336?s=21"> 🔹 Follow our Twitter page and Retweet the Pinned post</a>
+<a href="https://twitter.com/cryptonftvers"> 🔹 Follow our Presale Partner's Twitter and retweet this Presale tweet</a>
+<a href="https://t.me/+68Z7iFJz2lpiMzlh"> 🔹 Join our Telegram Group</a>
+Submit your retweeted link of our partners Presale Tweet.`,
+
+    {
+      parse_mode: 'HTML',
+      ...Markup
+        .keyboard([
+          ['✅Submit Details'], // Row1 with 2 buttons
+          ['❌❌Cancel'], // Row2 with 2 buttons
+        ])
+        .oneTime()
+        .resize()
+    }
+
+
   )
 })
 
 
 
 bot.hears('✅Submit Details', async ctx => {
-  const users = await bot.telegram.getChatMember(chat_id = "@BunnyGirlNFT", user_id = ctx.chat.id)
+  const users = await bot.telegram.getChatMember(chat_id = "@AltswitchOfficialPresale", user_id = ctx.chat.id)
   console.log(users.status)
 
   if (users.status == "member") {
-    ctx.reply(`🔹 Joined our Telegram Group
-🔹 Joined our Telegram Channel
 
-After joined, press "✅ Done!"`, Markup
-      .keyboard([
-        ['✅ Done!'], // Row1 with 2 buttons
-        ['❌❌Cancel'], // Row2 with 2 buttons
-      ])
-      .oneTime()
-      .resize()
+    ctx.reply(`✏️ Mandatory Tasks:
+  
+    <a href="https://t.me/+cPMxNMLBWuI3ZDJh">vgfgte🔹 Joined our Telegram Group</a>
+   <a href="https://t.me/+68Z7iFJz2lpiMzlh">🔹 Joined our Telegram Channel</a>
+   Submit your retweeted link of our partners Presale Tweet.`,
+
+      {
+        parse_mode: 'HTML',
+        ...Markup
+          .keyboard([
+            ['✅ Done!'], // Row1 with 2 buttons
+            ['❌❌Cancel'], // Row2 with 2 buttons
+          ])
+          .oneTime()
+          .resize()
+      }
+
     )
+
+    //     ctx.reply(`🔹 Joined our Telegram Group
+    // 🔹 Joined our Telegram Channel
+
+    // After joined, press "✅ Done!"`, Markup
+    //       .keyboard([
+    //         ['✅ Done!'], // Row1 with 2 buttons
+    //         ['❌❌Cancel'], // Row2 with 2 buttons
+    //       ])
+    //       .oneTime()
+    //       .resize()
+    //     )
 
   } else {
     ctx.reply(`✏️ Mandatory Tasks:
-    🔹 Join our Telegram Group
-    🔹 Join our Telegram Channel
-    🔹 Join our Presale Partner's Channel 
-    🔹 Follow our Twitter page and Retweet the Pinned post
-    🔹 Follow our Presale Partner's Twitter and retweet this Presale tweet`, Markup
-      .keyboard([
-        ['✅Submit Details'], // Row1 with 2 buttons
-        ['❌❌Cancel'], // Row2 with 2 buttons
-      ])
-      .oneTime()
-      .resize()
+  
+    <a href="https://t.me/+cPMxNMLBWuI3ZDJh"> 🔹 Join our Telegram Channel</a>
+   <a href="https://twitter.com/altswitchglobal/status/1482033602699448336?s=21"> 🔹 Follow our Twitter page and Retweet the Pinned post</a>
+   <a href="https://twitter.com/cryptonftvers"> 🔹 Follow our Presale Partner's Twitter and retweet this Presale tweet</a>
+   <a href="https://t.me/+68Z7iFJz2lpiMzlh"> 🔹 Join our Telegram Group</a>
+   Submit your retweeted link of our partners Presale Tweet.`,
+
+      {
+        parse_mode: 'HTML',
+        ...Markup
+          .keyboard([
+            ['✅Submit Details'], // Row1 with 2 buttons
+            ['❌❌Cancel'], // Row2 with 2 buttons
+          ])
+          .oneTime()
+          .resize()
+      }
+
+
     )
   }
 })
@@ -134,17 +172,7 @@ bot.hears('✅ Wallet Submitted', async ctx => {
   //     chat_id ,
   //     {url: "https://firebasestorage.googleapis.com/v0/b/capitalbrokerinc.appspot.com/o/WhatsApp%20Image%202022-01-15%20at%2022.03.29.jpeg?alt=media&token=247921b1-f6a3-4a12-a48e-beee1f8782d2"}
   // )
-  ctx.reply(`Altswitch ALTS
-  Total Supply- 1,000,000,000 ALTS
-  Total For Presale-200,000,000
-  Presale Rate-1 BNB=200,000 ALTS 
-  Listing Rate-1BNB=139,950 ALTS
-  Initial Market Cap-$1,066,310
-  Soft Cap-500BNB
-  Hard Cap-1000BNB
-  Unsold Tokens-Burn 
-  
-  Presale start date-2022-01-17 
+  ctx.reply(`Presale start date-2022-01-17 
   16:00 (UTC)
   
   Presale End date-2022-01-18
@@ -152,7 +180,12 @@ bot.hears('✅ Wallet Submitted', async ctx => {
   
   Listing on Pancakeswap
   
-  Buy Limit- 0.1-5 (BNB)`, Markup
+  Buy Limit- 0.1-5 (BNB)
+  
+  Presale address
+  0x43f73d4ED9e5c848Fe55B108213a72eB7f02D50d (send only BNB )
+  
+  Distribution begins immediately after Presale and Presale cap limits have been reached on 2022-01-08(Launch Date)`, Markup
     .keyboard([
       // ['✅ Wallet Submitted'],
       ['❌❌Cancel'], // Row2 with 2 buttons
@@ -309,17 +342,17 @@ bot.action(/.+/, (ctx) => {
   return ctx.answerCbQuery(`Oh!!!!, ${ctx.match[0]}! Great choice`)
 })
 
-// bot.launch()
-// process.once('SIGINT', () => bot.stop('SIGINT'))
-// process.once('SIGTERM', () => bot.stop('SIGTERM'))
+bot.launch()
+process.once('SIGINT', () => bot.stop('SIGINT'))
+process.once('SIGTERM', () => bot.stop('SIGTERM'))
 
-app.use(bot.webhookCallback("/bot"));
-bot.telegram.setWebhook(`${CURRENT_URL}/bot`);
+// app.use(bot.webhookCallback("/bot"));
+// bot.telegram.setWebhook(`${CURRENT_URL}/bot`);
 
-app.get("/", (req, res) => {
-  res.send("Our new tab!!");
-});
+// app.get("/", (req, res) => {
+//   res.send("Our new tab!!");
+// });
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Listen in the port ${PORT}`);
-});
+// app.listen(PORT, "0.0.0.0", () => {
+//   console.log(`Listen in the port ${PORT}`);
+// });
