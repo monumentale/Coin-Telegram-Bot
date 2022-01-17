@@ -2,7 +2,7 @@ const { Telegraf, Markup, Extra } = require('telegraf')
 const express = require("express");
 // const Extra = require('telegraf/extra')
 
-const bot = new Telegraf("5035695634:AAE8YTfiZJ9T-AsOhSHTR7EvxPE6Yvea59U")
+const bot = new Telegraf("5035695634")
 // 5035695634:AAE8YTfiZJ9T-AsOhSHTR7EvxPE6Yvea59U
 
 const app = express();
